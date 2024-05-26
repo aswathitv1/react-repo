@@ -1,10 +1,17 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
+import Header from './components/molecules/Header'
+import Footer from './components/molecules/Footer'
 
-const Mycomp = () => {
-    const comp = () => {
-        <h1 id="head">I am Component</h1>
-    }
+const AppLayout = () => {
+    return(
+        <div classname="app">
+            <Header />
+            <Footer />
+        </div>
+    )
 }
 
-root.render(<Mycomp/>)
+const root = ReactDOM.createRoot(document.getElementById('root'))
+
+root.render(<AppLayout />)
