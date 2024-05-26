@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom'
 
 const Mycomp = () => {
     const comp = () => {
-        <h1>I am Component</h1>
+        <h1 id="head">I am Component</h1>
     }
 }
 
