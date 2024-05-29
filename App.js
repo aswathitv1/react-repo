@@ -1,12 +1,14 @@
 import React from 'react'
-import ReactDOM from 'react-dom'
+import ReactDOM from 'react-dom/client'
 import Header from './components/molecules/Header'
 import Footer from './components/molecules/Footer'
+import Body from './components/molecules/Body'
 
 const AppLayout = () => {
     return(
-        <div classname="app">
+        <div className="app">
             <Header />
+            <Body/>
             <Footer />
         </div>
     )

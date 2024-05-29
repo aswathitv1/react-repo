@@ -1,16 +1,25 @@
-import React from 'react'
+import { useState } from 'react'
+import { LOGO_URL } from './../../utils/constants'
+import './Header.css'
 
 const Header = () => {
+    const [logoutText, setlogoutText] = useState(false)
+
+    const handleLogin = () => {
+        setlogoutText(true)
+    }
+
     return(
-        <div>
+        <div className="header">
             <div className="img-container">
-                <img src="https://www.logodesign.net/logo/smoking-burger-with-lettuce-3624ld.png?nwm=1&nws=1&industry=fast-food&txt_keyword=All" />
+                <img src={LOGO_URL} />
             </div>
-            <ul>
+            <ul className="navItem">
                 <li>Home</li>
                 <li>About Us</li>
                 <li>Contact</li>
                 <li>Cart</li>
+                <button onClick={handleLogin}>{logoutText?'Logout':'Login'}</button>
             </ul>
         </div>
     )
