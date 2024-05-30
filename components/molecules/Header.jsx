@@ -3,10 +3,13 @@ import { LOGO_URL } from './../../utils/constants'
 import './Header.css'
 
 const Header = () => {
-    const [logoutText, setlogoutText] = useState(false)
+    const [logoutText, setlogoutText] = useState("Login")
 
     const handleLogin = () => {
-        setlogoutText(true)
+        if(logoutText==='Login')
+            setlogoutText("LogOut")
+        else
+            setlogoutText('Login')
     }
 
     return(
@@ -19,7 +22,7 @@ const Header = () => {
                 <li>About Us</li>
                 <li>Contact</li>
                 <li>Cart</li>
-                <button onClick={handleLogin}>{logoutText?'Logout':'Login'}</button>
+                <button onClick={handleLogin}>{logoutText}</button>
             </ul>
         </div>
     )
