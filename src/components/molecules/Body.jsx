@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import RestItem from '../atoms/RestItem'
 import Shimmer from '../atoms/Shimmer'
-import './Body.css'
+// import './Body.css'
 import { REST_DATA } from '../../utils/constants'
 import useOnlineStatus from '../../utils/useOnlineStatus'
 
@@ -35,7 +35,7 @@ const Body = () => {
         const filteredVal = pageData.filter((item)=>item.info.name.toLowerCase().includes(searchVal.toLowerCase()))
         setFilteredPageData(filteredVal)
     }
-    
+
     console.log(!onlineStatus)
     if(!onlineStatus){
         return (<h1>Oops, no internet connection!!!</h1>)

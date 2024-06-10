@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react"
-import {  REST_URL } from "../utils/constants"
+import {  REST_URL } from "./constants"
 
 const useRestFetch = (id) => {
     const [responseData, setResponseData] = useState(null)

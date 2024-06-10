@@ -1,5 +1,5 @@
-import './restItem.css'
-import { REST_IMG } from './../../utils/constants'
+// import './restItem.css'
+import { REST_IMG } from '../../utils/constants'
 
 const RestItem = ({restData}) => {
     const {name, cuisines, avgRating, sla, cloudinaryImageId} = restData.info

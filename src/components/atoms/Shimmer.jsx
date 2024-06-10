@@ -1,4 +1,4 @@
-import './Shimmer.css'
+// import './Shimmer.css'
 
 const Shimmer = () => {
     return(
