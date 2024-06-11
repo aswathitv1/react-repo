@@ -16,19 +16,19 @@ const Header = () => {
     }
 
     return(
-        <div className="flex justify-between bg-teal-800">
+        <div className="flex justify-between bg-pink-100 shadow-lg sm:bg-yellow-50 lg:bg-green-50">
             <div className="logo-container">
-                <img className="w-36" src={LOGO_URL} />
+                <img className="w-70" src={LOGO_URL} />
             </div>
-            <div className="flex items-center">
-                <ul className="flex px-7">
-                    <li  className="flex px-3 text-cyan-50">Status: {onlineStatus?"🟢":"🔴"}</li>
-                    <li  className="flex px-3 text-cyan-50"><Link to="/">Home</Link></li>
-                    <li  className="flex px-3 text-cyan-50"><Link to="/about">About Us</Link></li>
-                    <li  className="flex px-3 text-cyan-50"><Link to="/contact">Contact</Link></li>
-                    <li  className="flex px-3 text-cyan-50"><Link to="/grocery">Grocery</Link></li>
-                    <li  className="flex px-3 text-cyan-50">Cart</li>
-                    <button className="flex px-3 text-cyan-50" onClick={handleLogin}>{logoutText}</button>
+            <div className="flex px-4">
+                <ul>
+                    <li>Status: {onlineStatus?"🟢":"🔴"}</li>
+                    <li><Link to="/">Home</Link></li>
+                    <li><Link to="/about">About Us</Link></li>
+                    <li><Link to="/contact">Contact</Link></li>
+                    <li><Link to="/grocery">Grocery</Link></li>
+                    <li>Cart</li>
+                    <button onClick={handleLogin}>{logoutText}</button>
                 </ul>
             </div>
         </div>
