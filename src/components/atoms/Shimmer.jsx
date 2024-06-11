@@ -1,19 +1,17 @@
-// import './Shimmer.css'
-
 const Shimmer = () => {
     return(
-        <div className="shimmer-container">
-            <div className="shimmer"></div>
-            <div className="shimmer"></div>
-            <div className="shimmer"></div>
-            <div className="shimmer"></div>
-            <div className="shimmer"></div>
-            <div className="shimmer"> </div>
-            <div className="shimmer"></div>
-            <div className="shimmer"></div>
-            <div className="shimmer"></div>
-            <div className="shimmer"></div>
-            <div className="shimmer"></div>
+        <div className="flex flex-wrap">
+            <div className="bg-slate-500"></div>
+            <div className="bg-slate-300"></div>
+            <div className="bg-slate-300"></div>
+            <div className="bg-slate-300"></div>
+            <div className="bg-slate-300"></div>
+            <div className="bg-slate-300"> </div>
+            <div className="bg-slate-300"></div>
+            <div className="bg-slate-300"></div>
+            <div className="bg-slate-300"></div>
+            <div className="bg-slate-300"></div>
+            <div className="bg-slate-300"></div>
         </div>
     )
 }
