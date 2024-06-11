@@ -24,7 +24,7 @@ const Body = () => {
     }
 
     const handleClick = () => {
-        setPageData(pageData.filter(rest=>rest.info.avgRating>=4.5))
+        setFilteredPageData(pageData.filter(rest=>rest.info.avgRating>=4.5))
     }
 
     const handleChange = (e) => {
@@ -36,7 +36,6 @@ const Body = () => {
         setFilteredPageData(filteredVal)
     }
 
-    console.log(!onlineStatus)
     if(!onlineStatus){
         return (<h1>Oops, no internet connection!!!</h1>)
     }
@@ -45,15 +44,17 @@ const Body = () => {
         return <Shimmer />
     }
     return(
-        <div>
-            <div className='buttonContainer'>
-                <button onClick={()=>handleClick()}>Top-Rated</button>
-            </div>
+        <div className='m-4'>
+            <div className="flex justify-between mb-4">               
             <div className="searchcontainer">
-                <input type="text" value={searchVal} onChange={(e)=>handleChange(e)}></input>
+                    <input className='border-teal-800 mr-2' type="text" value={searchVal} onChange={(e)=>handleChange(e)}></input>
                 <button onClick={()=>handleSearch()}>Search</button>
+                </div>
+                <div className='border-spacing-1'>
+                    <button className='bg-teal-800 p-2 rounded-md text-white hover:bg-teal-600' onClick={()=>handleClick()}>Top-Rated Restaurants</button>
+                </div>
             </div>
-            <div className="restList">
+            <div className="flex flex-wrap m-5">
                 {filteredPageData && filteredPageData.map((item)=>{
                     return <Link to={"/restaurants/"+item.info.id}  key= {item.info.id}><RestItem restData={item}/></Link>
                     })
