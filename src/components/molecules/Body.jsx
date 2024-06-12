@@ -47,7 +47,7 @@ const Body = () => {
         <div className='m-4'>
             <div className="flex justify-between mb-4">               
             <div className="searchcontainer">
-                    <input className='border-teal-800 mr-2' type="text" value={searchVal} onChange={(e)=>handleChange(e)}></input>
+                    <input className='border border-teal-800 mr-2' type="text" value={searchVal} onChange={(e)=>handleChange(e)}></input>
                 <button onClick={()=>handleSearch()}>Search</button>
                 </div>
                 <div className='border-spacing-1'>

@@ -11,7 +11,8 @@ const useRestFetch = (id) => {
     const fetchData = async() => {
         const resData = await fetch(REST_URL+id)
         const responseData = await resData.json()
-        setResponseData(responseData?.data?.cards[2]?.card.card.info)
+        // console.log(responseData?.data?.cards)
+        setResponseData(responseData?.data?.cards)
     }
 
     return responseData

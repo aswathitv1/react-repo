@@ -1,27 +1,32 @@
 import { useParams } from 'react-router-dom'
-import { REST_IMG } from "../../utils/constants"
 import useRestFetch from '../../utils/useRestFetch'
 import Shimmer from './Shimmer'
+import MenuCategory from './MenuCategory'
 
 const RestMenu = () => {
     const resId = useParams()
 
     const restaurant = useRestFetch(resId.id)
-    console.log(restaurant)
 
     if(restaurant===null){
         return <Shimmer />
     }
 
+    const filteredCategory = restaurant?.[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards?.filter(item=>item?.card?.card?.["@type"]==="type.googleapis.com/swiggy.presentation.food.v2.ItemCategory")
+    
+    const { name, avgRating, costForTwoMessage, cuisines} = restaurant?.[2]?.card?.card?.info
+
     return(
-        <div className="rest-container">
-            <img className= "rest-image" src={REST_IMG+restaurant?.cloudinaryImageId} />
-            <h1>{restaurant?.name}</h1>
-            <h2>{restaurant?.avgRating} - {restaurant?.costForTwoMessage}</h2>
-            <h2>Menu</h2>
-            <ul>
-                <li></li>
-            </ul>
+        <div className="my-10 mx-auto w-[700]">
+            <h1 className='font-bold'>{name}</h1>
+            <div className='bg-gray-100 p-5 my-5 rounded-lg shadow-md'>
+                <h2>⭐ {avgRating}</h2>
+                <h2>{costForTwoMessage}</h2>
+                <h2>{cuisines.join(',')}</h2>
+            </div>
+            {filteredCategory.map(category=>
+                <MenuCategory menuData={category}/>
+            )}
         </div>
     )
 }
