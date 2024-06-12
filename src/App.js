@@ -7,7 +7,7 @@ import Body from './components/molecules/Body'
 import Error from './components/molecules/Error'
 import About from './components/molecules/About'
 import Contact from './components/molecules/Contact'
-import RestCard from './components/atoms/RestCard'
+import RestMenu from './components/atoms/RestMenu'
 import Shimmer from './components/atoms/Shimmer'
 
 const AppLayout = () => {
@@ -46,7 +46,7 @@ const appRouter = createBrowserRouter([
             },
             {
                 path:'/restaurants/:id',
-                element:<RestCard />
+                element:<RestMenu />
             }
         ]
     }

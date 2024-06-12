@@ -1,8 +1,7 @@
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
-import RestItem from '../atoms/RestItem'
+import RestItem, { promotedRestitem } from '../atoms/RestItem'
 import Shimmer from '../atoms/Shimmer'
-// import './Body.css'
 import { REST_DATA } from '../../utils/constants'
 import useOnlineStatus from '../../utils/useOnlineStatus'
 
@@ -11,6 +10,7 @@ const Body = () => {
     const [filteredPageData, setFilteredPageData] = useState([])
     const [searchVal, setSearchVal] = useState("")
     const onlineStatus = useOnlineStatus()
+    const RestItemPromoted = promotedRestitem(<RestItem/>)
 
     useEffect(()=>{
         fetchData()
@@ -40,7 +40,7 @@ const Body = () => {
         return (<h1>Oops, no internet connection!!!</h1>)
     }
 
-    if(pageData.length===0){
+    if(filteredPageData?.length===0){
         return <Shimmer />
     }
     return(
@@ -56,7 +56,11 @@ const Body = () => {
             </div>
             <div className="flex flex-wrap m-5">
                 {filteredPageData && filteredPageData.map((item)=>{
-                    return <Link to={"/restaurants/"+item.info.id}  key= {item.info.id}><RestItem restData={item}/></Link>
+                    return(
+                        <Link to={"/restaurants/"+item.info.id}  key= {item.info.id}>
+                            {item.info.locality==='Koramangala'?<RestItemPromoted restData={item}/>:<RestItem restData={item}/>}
+                        </Link>
+                        )
                     })
                 }
             </div>  

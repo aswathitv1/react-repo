@@ -2,6 +2,7 @@
 import { REST_IMG } from '../../utils/constants'
 
 const RestItem = ({restData}) => {
+    
     const {name, cuisines, avgRating, sla, cloudinaryImageId} = restData.info
 
     return(
@@ -13,6 +14,17 @@ const RestItem = ({restData}) => {
             <h3>{sla.slaString} mins</h3>
         </div>  
     )
+}
+
+export const promotedRestitem = (restItem) => {
+    return((props)=>{
+        return(
+            <div>
+                <label className='bg-black text-white p-1 rounded-md absolute'>{props.restData.info.locality}</label>
+                <RestItem {...props} />
+            </div>
+        )
+    })
 }
 
 export default RestItem

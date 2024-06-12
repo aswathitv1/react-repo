@@ -3,7 +3,7 @@ import { REST_IMG } from "../../utils/constants"
 import useRestFetch from '../../utils/useRestFetch'
 import Shimmer from './Shimmer'
 
-const RestCard = () => {
+const RestMenu = () => {
     const resId = useParams()
 
     const restaurant = useRestFetch(resId.id)
@@ -26,4 +26,4 @@ const RestCard = () => {
     )
 }
 
-export default RestCard
+export default RestMenu
