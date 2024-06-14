@@ -1,6 +1,6 @@
 import { REST_IMG } from './../../utils/constants'
 const MenuList = ({list}) => {
-
+    console.log('check gitmerge main')
     return(
         <div>
             {list?.card?.card?.itemCards?.map(item=>
