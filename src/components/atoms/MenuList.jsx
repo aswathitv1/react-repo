@@ -1,6 +1,7 @@
 import { REST_IMG } from './../../utils/constants'
 const MenuList = ({list}) => {
-
+    const newKey = 'abc'
+    console.log(newKey)
     return(
         <div>
             {list?.card?.card?.itemCards?.map(item=>
