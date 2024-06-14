@@ -1,10 +1,12 @@
 import { useParams } from 'react-router-dom'
+import { useState } from 'react'
 import useRestFetch from '../../utils/useRestFetch'
 import Shimmer from './Shimmer'
 import MenuCategory from './MenuCategory'
 
 const RestMenu = () => {
     const resId = useParams()
+    const [showItem, setShowItem] = useState(0)
 
     const restaurant = useRestFetch(resId.id)
 
@@ -13,7 +15,7 @@ const RestMenu = () => {
     }
 
     const filteredCategory = restaurant?.[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards?.filter(item=>item?.card?.card?.["@type"]==="type.googleapis.com/swiggy.presentation.food.v2.ItemCategory")
-    
+
     const { name, avgRating, costForTwoMessage, cuisines} = restaurant?.[2]?.card?.card?.info
 
     return(
@@ -24,8 +26,8 @@ const RestMenu = () => {
                 <h2>{costForTwoMessage}</h2>
                 <h2>{cuisines.join(',')}</h2>
             </div>
-            {filteredCategory.map(category=>
-                <MenuCategory menuData={category}/>
+            {filteredCategory.map((category, index)=>
+                <MenuCategory menuData={category} key={category?.card?.card?.title} showList={index===showItem && true} setShowItem={()=>setShowItem(index)}/>
             )}
         </div>
     )
