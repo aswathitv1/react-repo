@@ -2,7 +2,6 @@
 import { REST_IMG } from '../../utils/constants'
 
 const RestItem = ({restData}) => {
-    console.log(restData)
     const {name, cuisines, avgRating, sla, cloudinaryImageId} = restData.info
 
     return(

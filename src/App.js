@@ -9,14 +9,17 @@ import About from './components/molecules/About'
 import Contact from './components/molecules/Contact'
 import RestMenu from './components/atoms/RestMenu'
 import Shimmer from './components/atoms/Shimmer'
+import UserContext from './utils/UserContext'
 
 const AppLayout = () => {
     return(
-        <div className="app">
-            <Header />
-            <Outlet />
-            {/* <Footer /> */}
-        </div>
+        <UserContext.Provider value={{user:'Aswathi'}}>
+            <div className="app">
+                <Header />
+                <Outlet />
+                {/* <Footer /> */}
+            </div>
+        </UserContext.Provider>
     )
 }
 

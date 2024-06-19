@@ -1,12 +1,14 @@
-import { useState } from 'react'
+import { useContext, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { LOGO_URL } from '../../utils/constants'
 import useOnlineStatus from '../../utils/useOnlineStatus'
-// import './Header.css'
+import UserContext from '../../utils/UserContext'
 
 const Header = () => {
     const [logoutText, setlogoutText] = useState("Login")
     const onlineStatus = useOnlineStatus()
+    const {user} = useContext(UserContext)
+    console.log(user)
 
     const handleLogin = () => {
         if(logoutText==='Login')
@@ -22,6 +24,7 @@ const Header = () => {
             </div>
             <div className="flex items-center">
                 <ul className="flex px-7">
+                    <li>{user}</li>
                     <li  className="flex px-3 text-cyan-50">Status: {onlineStatus?"🟢":"🔴"}</li>
                     <li  className="flex px-3 text-cyan-50"><Link to="/">Home</Link></li>
                     <li  className="flex px-3 text-cyan-50"><Link to="/about">About Us</Link></li>
