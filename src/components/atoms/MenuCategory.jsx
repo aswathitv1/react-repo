@@ -19,7 +19,7 @@ const MenuCategory = ({menuData, showList, setShowItem}) => {
                     <span className="pb-2">{menuData?.card?.card?.title}</span>
                     <span>⬇️</span>
                 </div>
-                {showList&&<MenuList list={menuData}/>}
+                {showList&&<MenuList list={menuData?.card?.card?.itemCards}/>}
             </div>
         </div>
     )

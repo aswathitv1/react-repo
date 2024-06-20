@@ -10,16 +10,21 @@ import Contact from './components/molecules/Contact'
 import RestMenu from './components/atoms/RestMenu'
 import Shimmer from './components/atoms/Shimmer'
 import UserContext from './utils/UserContext'
+import { Provider } from 'react-redux'
+import appStore from './utils/appStore'
+import Cart from './components/atoms/Cart'
 
 const AppLayout = () => {
     return(
-        <UserContext.Provider value={{user:'Aswathi'}}>
-            <div className="app">
-                <Header />
-                <Outlet />
-                {/* <Footer /> */}
-            </div>
-        </UserContext.Provider>
+        <Provider store = {appStore}>
+            <UserContext.Provider value={{user:'Aswathi'}}>
+                <div className="app">
+                    <Header />
+                    <Outlet />
+                    {/* <Footer /> */}
+                </div>
+            </UserContext.Provider>
+        </Provider>
     )
 }
 
@@ -50,6 +55,10 @@ const appRouter = createBrowserRouter([
             {
                 path:'/restaurants/:id',
                 element:<RestMenu />
+            },
+            {
+                path:'/cart',
+                element:<Cart />
             }
         ]
     }

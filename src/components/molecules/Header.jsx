@@ -3,12 +3,14 @@ import { Link } from 'react-router-dom'
 import { LOGO_URL } from '../../utils/constants'
 import useOnlineStatus from '../../utils/useOnlineStatus'
 import UserContext from '../../utils/UserContext'
+import { useDispatch, useSelector } from 'react-redux'
 
 const Header = () => {
     const [logoutText, setlogoutText] = useState("Login")
     const onlineStatus = useOnlineStatus()
     const {user} = useContext(UserContext)
-    console.log(user)
+    const cartItems = useSelector(store=>store.cart.items)
+
 
     const handleLogin = () => {
         if(logoutText==='Login')
@@ -30,7 +32,7 @@ const Header = () => {
                     <li  className="flex px-3 text-cyan-50"><Link to="/about">About Us</Link></li>
                     <li  className="flex px-3 text-cyan-50"><Link to="/contact">Contact</Link></li>
                     <li  className="flex px-3 text-cyan-50"><Link to="/grocery">Grocery</Link></li>
-                    <li  className="flex px-3 text-cyan-50">Cart</li>
+                    <li  className="flex px-3 text-cyan-50"><Link to="/cart">Cart({cartItems.length})</Link></li>
                     <button className="flex px-3 text-cyan-50" onClick={handleLogin}>{logoutText}</button>
                 </ul>
             </div>
